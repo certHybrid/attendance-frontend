@@ -24,31 +24,44 @@ const Signin = () => {
 
         logstudent();
     };
-    const logstudent = () => {
+    const logstudent = async() => {
         setLoading(true);
           //connection to backend here
-          axios.post("http://localhost/attendanceBackend/userlogin.php", {
-            studentid,
-            password
-        })
-            .then((res) => {
-                console.log(res);
-                setLoading(false);
-                if (res.status===200) {
-                    toast.success("Login successful!");
-                   //this will reset the login field
-                    setStudentid('');
-                    setPassword('');
-                } else {
-                    toast.error(res.data.message);
-                }
-            })
-            .catch((err) => {
-                setLoading(false);
-                toast.error("Login details incorrect");
-            });
+          try {
+            const res = await axios.post("http://localhost/attendanceBackend/userlogin.php", 
+                { studentid, password },
+                // { headers: { "Content-Type": "application/json" } }
+            );
 
+            if (res.status === 200) {
+                toast.success(res.data.message || "Login successful");
+
+                // Store user info or token in localStorage/sessionStorage if needed
+                // localStorage.setItem("user", JSON.stringify(res.data.user));
+
+                // Reset form fields
+                setStudentid('');
+                setPassword('');
+            }
+        } catch (error) {
+            setLoading(false);
+
+            if (error.response) {
+                if (error.response.status === 401) {
+                    toast.error("Incorrect password");
+                } else if (error.response.status === 404) {
+                    toast.error("Student ID not found");
+                } else {
+                    toast.error(error.response.data.message || "Login failed");
+                }
+            } else {
+                toast.error("Network error. Please try again.");
+            }
+        } finally {
+            setLoading(false);
+        }
     };
+
     return (
         <>
             <div className="signupBg">
