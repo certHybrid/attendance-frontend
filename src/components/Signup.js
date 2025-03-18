@@ -3,6 +3,8 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+import '../signup.css'
+import sqiLogo from '../Images/sqi.png'
 
 const Signup = () => {
     const [firstname, setFirstname] = useState("");
@@ -70,69 +72,73 @@ const Signup = () => {
 
     return (
         <div className="signupBg">
+            <div className='SignUPsqiLogo'>
+                <img src={sqiLogo} alt="picture" width="100px" />
+            </div>
             <main className="signupForm">
-                <div className="crt">
-                    Create New Account
-                </div>
-                <p className="welc">
-                    Welcome to SQI Attendance app
-                </p>
+
                 <form className="signForm" onSubmit={handleSubmit}>
-                    <div className="inpbox">
+                    <div className="SignUPcrt">
+                        Create New Account
+                    </div>
+                    <p className="SignUPwelc">
+                        Welcome to SQI Attendance app
+                    </p>
+                    <div className="SignUPinpbox">
                         <label htmlFor="firstname" className="lab">First Name</label>
                         <input
                             type="text"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="abeni"
                             value={firstname}
                             onChange={(e) => setFirstname(e.target.value)}
                         />
                     </div>
-                    <div className="inpbox">
+                    <div className="SignUPinpbox">
                         <label htmlFor="lastname" className="lab">Last Name</label>
                         <input
                             type="text"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="agbon"
                             value={lastname}
                             onChange={(e) => setLastname(e.target.value)}
                         />
                     </div>
-                    <div className="inpbox">
+                    <div className="SignUPinpbox">
                         <label htmlFor="email" className="lab">Email</label>
                         <input
                             type="email"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="@aagbon.com"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                         />
                     </div>
-                    <div className="inpbox">
+                    <div className="SignUPinpbox">
                         <label htmlFor="studentid" className="lab">Student ID</label>
                         <input
                             type="text"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="123459"
                             value={studentid}
                             onChange={(e) => setStudentid(e.target.value)}
                         />
                     </div>
-                    <div className="inpbox">
+                    <div className="SignUPinpbox">
                         <label htmlFor="department" className="lab">Department</label>
                         <input
                             type="text"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="Data Science"
                             value={department}
                             onChange={(e) => setDepartment(e.target.value)}
                         />
                     </div>
-                    <div className="inpbox">
+                    <div className="SignUPinpbox">
                         <label htmlFor="password" className="lab">Password</label>
                         <input
                             type="password"
-                            className="inp"
+                            className="SignUPinp"
                             placeholder="********"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}

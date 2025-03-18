@@ -1,0 +1,149 @@
+.loginBg {
+  background-image: linear-gradient(#020659, #FDC938);
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.signinForm {
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)), url(./Images/sqi.png);
+  width: 60%;
+  height: 80%;
+  position: relative;
+  top: 50px;
+  border-radius: 32px;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 50px;
+  margin: auto;
+}
+
+.crt {
+  font-size: 50.1px;
+  font-weight: 600;
+  line-height: 62.63px;
+  text-align: center;
+  position: relative;
+  top: -50px;
+}
+
+.welclog {
+  font-weight: 400;
+  font-size: 18.79px;
+  line-height: 23.49px;
+  text-align: center;
+  margin: 50px;
+  position: relative;
+  top: -50px;
+}
+
+.loginForm {
+  width: 99%;
+  height: 605px;
+  /* border: 1px solid blue; */
+  margin: 150px auto;
+  background-color: inherit;
+}
+
+.inpbox {
+  width: 70%;
+  height: 82px;
+  margin: auto;
+  position: relative;
+}
+
+.inp {
+
+  border: 1px solid;
+  color: black;
+  width: 99%;
+  border-radius: 5px;
+  height: 50px;
+  font-size: 20px;
+  padding: 10px;
+  background: none;
+  position: initial;
+}
+
+.lab {
+  width: fit-content;
+  height: fit-content;
+  letter-spacing: 1.5px;
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background-color: #e7e5e6;
+}
+
+.logbut {
+  background-color: #2D3484;
+  width: 70%;
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+
+  font-size: 18px;
+  font-weight: 600;
+
+  height: 50px;
+  transition: all 0.5s ease-in-out;
+}
+
+.logbut:hover {
+  background-color: #020659;
+}
+
+.sqiLogo {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .signinForm {
+    background-image: none;
+    width: 90%;
+    /* Make it more responsive */
+    padding: 30px;
+  }
+
+  .loginBg {
+    background-image: none;
+  }
+
+  .loginForm,
+  .inpbox,
+  .logbut {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .sqiLogo {
+    position: relative;
+
+    top: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .crt {
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 100%;
+    text-align: left;
+  }
+
+  .welclog {
+    font-size: 12px;
+    line-height: 100%;
+    font-weight: 400;
+    letter-spacing: 0%;
+    text-align: left;
+    margin: 10px 0 0 0;
+    line-height: 100%;
+  }
+
+}

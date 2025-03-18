@@ -3,6 +3,10 @@ import { useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import '../signin.css';
+import sqiLogo from '../Images/sqi.png';
+
+
 
 const Signin = () => {
     const [studentid, setStudentid] = useState("");
@@ -24,13 +28,13 @@ const Signin = () => {
 
         logstudent();
     };
-    const logstudent = async() => {
+    const logstudent = async () => {
         setLoading(true);
-          //connection to backend here
-          try {
-            const res = await axios.post("http://localhost/attendanceBackend/userlogin.php", 
+        //connection to backend here
+        try {
+            const res = await axios.post("http://localhost/attendanceBackend/userlogin.php",
                 { studentid, password },
-                // { headers: { "Content-Type": "application/json" } }
+                { headers: { "Content-Type": "application/json" } }
             );
 
             if (res.status === 200) {
@@ -64,15 +68,20 @@ const Signin = () => {
 
     return (
         <>
-            <div className="signupBg">
-                <main className="signupForm">
-                    <div className="crt">
-                        Login
-                    </div>
-                    <p className="welclog">
-                        Welcome to SQI Attendance app
-                    </p>
+            <div className="loginBg">
+                <div className='sqiLogo'>
+                    <img src={sqiLogo} alt="picture" width="100px" />
+                </div>
+                <main className="signinForm">
+
+
                     <form className="loginForm" onSubmit={handleSubmit}>
+                        <div className="crt">
+                            Login
+                        </div>
+                        <p className="welclog">
+                            Welcome to SQI Attendance app
+                        </p>
 
 
                         <div className="inpbox">
@@ -96,7 +105,7 @@ const Signin = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <button type="submit" className="formbut" disabled={loading}>
+                        <button type="submit" className="logbut" disabled={loading}>
                             {loading ? 'Logging In...' : 'Login'}
                         </button>
                     </form>
