@@ -70,7 +70,7 @@ const Signin = () => {
         <>
             <div className="loginBg">
                 <div className='sqiLogo'>
-                    <img src={sqiLogo} alt="picture" width="100px" />
+                    <img src={sqiLogo} alt="Logo" width="100px" />
                 </div>
                 <main className="signinForm">
 
